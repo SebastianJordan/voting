@@ -29,8 +29,8 @@ pipeline {
             }
         }
         stage('Build docker'){
-            steps{
-              docker.build("sebastianjordan19/com.sebastian.voting${env.BUILD_NUMBER}")
+            steps {
+                docker.build("sebastianjordan19/com.sebastian.voting${env.BUILD_NUMBER}")
             }
         }
     }
