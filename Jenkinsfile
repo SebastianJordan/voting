@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    def app 
     tools {
         maven 'Maven 3.9.9'
     }
@@ -30,13 +29,8 @@ pipeline {
         }
         stage('Build docker'){
             steps{
-              app =  docker.build("sebastianjordan19/com.sebastian.voting${env.BUILD_NUMBER}")
+              docker.build("sebastianjordan19/com.sebastian.voting${env.BUILD_NUMBER}")
             }
         }
-        stage('Test image') {           
-            app.inside {            
-             sh 'echo "Tests passed"'        
-            }    
-        } 
     }
 }
