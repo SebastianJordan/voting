@@ -29,6 +29,11 @@ pipeline {
         }
         stage('Build docker'){
             steps {
+                script {
+                    sh 'ls'
+                }
+            }
+            steps {
                  script {
                     docker.build("sebastianjordan19/com.sebastian.api:0.0.1",".")
                 }
