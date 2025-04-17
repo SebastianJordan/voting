@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3.9.9'
+       'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
     }
     stages {
         stage('Checkout') {
