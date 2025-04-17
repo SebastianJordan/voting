@@ -27,15 +27,17 @@ pipeline {
                 }
             }
         }
-        stage('Build docker'){
+        stage('print ls') {
             steps {
                 script {
                     sh 'ls'
                 }
             }
+        }
+        stage('Build docker') {
             steps {
-                 script {
-                    docker.build("sebastianjordan19/com.sebastian.api:0.0.1",".")
+                script {
+                    docker.build('sebastianjordan19/com.sebastian.api:0.0.1', '.')
                 }
             }
         }
