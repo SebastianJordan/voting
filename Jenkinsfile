@@ -1,8 +1,10 @@
 pipeline {
     agent any
+    
     tools {
         maven 'Maven 3.9.9'
     }
+    
     stages {
         stage('Checkout') {
             steps {
@@ -20,28 +22,15 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Verify Docker') {
             steps {
                 script {
-                    sh 'echo "funciona"'
+                    sh 'docker version || echo "Docker no está disponible"'
                 }
             }
         }
-        stage('print ls') {
-            steps {
-                script {
-                    sh 'ls'
-                }
-            }
-        }
-        stage('exist docker') {
-            steps {
-                script {
-                    sh 'docker version'
-                }
-            }
-        }
-        stage('Build docker') {
+
+        stage('Build Docker') {
             steps {
                 script {
                     docker.build('sebastianjordan19/com.sebastian.api:0.0.1', '.')
