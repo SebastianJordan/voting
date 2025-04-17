@@ -21,7 +21,7 @@ pipeline {
         stage('Build Docker') {
             steps {
                 script {
-                    docker.build('sebastianjordan19/com.sebastian.api:0.0.${env.BUILD_NUMBER}')
+                    docker.build('sebastianjordan19/com.sebastian.api:0.0.2')
                 }
             }
         }
