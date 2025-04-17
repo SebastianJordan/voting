@@ -34,6 +34,13 @@ pipeline {
                 }
             }
         }
+        stage('exist docker') {
+            steps {
+                script {
+                    sh 'docker version'
+                }
+            }
+        }
         stage('Build docker') {
             steps {
                 script {
