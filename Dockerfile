@@ -3,7 +3,7 @@ COPY . /app
 WORKDIR /app
 RUN  ./mvnw  clean package
 RUN mv -f target/*.jar app.jar
-#code example
+#Port 3000
 FROM eclipse-temurin:21-jre
 COPY --from=build /app/app.jar .
 ARG PORT
